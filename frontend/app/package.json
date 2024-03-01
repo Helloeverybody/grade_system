@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "npmi": "npm i"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +19,10 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
+    "@interactjs/actions": "^1.10.26",
+    "@interactjs/interact": "^1.10.26",
+    "@interactjs/modifiers": "^1.10.26",
+    "plain-draggable": "^2.5.14",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
