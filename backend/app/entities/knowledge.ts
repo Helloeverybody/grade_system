@@ -1,10 +1,12 @@
-export class Knowledge {
+import {Model} from "./model";
+
+export class Knowledge extends Model {
     /** название */
-    title;
+    title: string;
     /** что человек должен знать */
-    description;
+    description: string;
     /** категория вопроса */
-    category;
+    category: string;
     /** список юрлов для подготовки */
     helpLinks = new Map();
 }
