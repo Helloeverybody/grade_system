@@ -1,9 +1,6 @@
-import {ObjectId} from "mongodb";
-import {EmployeeModel} from "../dto/employee.dto";
-import {wrapErrorResponse} from "../utils/wrap-response";
 import {Request, Response} from "express";
-import {Department} from "../entities/department";
 import {DepartmentModel} from "../dto/department.dto";
+import {wrapErrorResponse} from "../errors/utils/wrap-error-response";
 
 export async function getDepartmentController(request: Request, response: Response) {
     wrapErrorResponse(async () => {
