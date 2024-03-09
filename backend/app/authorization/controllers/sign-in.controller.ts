@@ -8,6 +8,8 @@ import {sign} from "jsonwebtoken";
 import {authConfig} from "../config/auth.config";
 import {Role} from "../../entities/roles.enum";
 
+// TODO токен лучше передавать не через cookie, а через Authorization заголовок
+// TODO нет refresh токена, не безопасно
 export async function signInController(request: Request, response: Response) {
     wrapErrorResponse(async () => {
         const [userByUsername, userByEmail] = await Promise.all([
@@ -37,7 +39,7 @@ export async function signInController(request: Request, response: Response) {
                     id: user._id,
                     username: user.username,
                     email: user.email,
-                    roles: user.roles.map((role: Role) => `ROLE_${role.toUpperCase()}`)
+                    roles: user.roles
                 })
             } else {
                 throw new ErrorModel(StatusCode.forbidden, 'Incorrect password!')

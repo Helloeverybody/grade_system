@@ -9,12 +9,12 @@ export function verifyToken(request: Request, response: Response, next: NextFunc
     wrapErrorResponse(async () => {
         const token = request.session.token
         if (!token) {
-            throw new ErrorModel(StatusCode.forbidden, 'no token provided!')
+            throw new ErrorModel(StatusCode.unauthorized, 'no token provided!')
         }
 
         verify(token, authConfig.secretKey, (error, decoded) => {
             if (error) {
-                throw new ErrorModel(StatusCode.unauthorized, 'JWT tchoken incorrect!')
+                throw new ErrorModel(StatusCode.unauthorized, 'JWT token incorrect!')
             }
 
             response.locals.userId = decoded.id;

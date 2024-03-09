@@ -5,12 +5,18 @@ import {StatusCode} from "../../errors/enums/status-code.enum";
 import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
 import {ErrorModel} from "../../errors/models/error.model";
 
+function generatePassword() {
+    return 'password'
+}
+
 export async function signUpController(request: Request, response: Response) {
     wrapErrorResponse(async () => {
+        const password = generatePassword();
+
         const user = new User({
             username: request.body.username,
             email: request.body.email,
-            password: hashSync(request.body.password, 8),
+            password: hashSync(password, 8),
         });
 
         if (request.body.roles?.length > 0) {
@@ -24,6 +30,6 @@ export async function signUpController(request: Request, response: Response) {
             throw new ErrorModel(StatusCode.badRequest, user)
         }
 
-        response.sendStatus(StatusCode.ok);
+        response.status(StatusCode.ok).send({ generatedPassword: password });
     }, response)
 }

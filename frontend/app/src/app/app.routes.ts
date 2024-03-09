@@ -11,4 +11,8 @@ export const routes: Routes = [
     redirectTo: 'grid',
     pathMatch: 'full'
   },
+  {
+    path: 'authorization',
+    loadChildren: () => import('./authorization/authorization.routes').then(m => m.routes)
+  }
 ];
