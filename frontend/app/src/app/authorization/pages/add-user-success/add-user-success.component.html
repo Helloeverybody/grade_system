@@ -1,0 +1,15 @@
+<div class="tui-container">
+	<h1>Новый сотрудник добавлен!</h1>
+	<tui-island>
+		<ng-container *ngIf="viewModel | async as viewModel else loader">
+			Логин: {{viewModel.login}}
+			Пароль: {{viewModel.password}}
+		</ng-container>
+		<ng-template #loader>
+			<tui-loader></tui-loader>
+		</ng-template>
+	</tui-island>
+	<button tuiButton>
+		К списку сотрудников
+	</button>
+</div>

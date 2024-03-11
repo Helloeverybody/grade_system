@@ -1,18 +1,19 @@
 import {NextFunction, Request, Response} from "express";
 import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
-import {Role} from "../../entities/roles.enum";
 import {ErrorModel} from "../../errors/models/error.model";
 import {StatusCode} from "../../errors/enums/status-code.enum";
+import {RoleModel} from "../models/role.model";
 
 export function checkRoleExists(request: Request, response: Response, next: NextFunction) {
     wrapErrorResponse(async () => {
         if (request.body.roles?.length > 0) {
-            const rolesExist = Object.keys(Role).some((role: Role) => {
-                return request.body.roles.some((requestedRole: Role) => requestedRole === role)
+            const rolesFromDb = await RoleModel.find({ _id: { $in: request.body.roles }}).exec()
+
+            request.body.roles.forEach((roleId: string) => {
+                if (!rolesFromDb.find((role) => role.id === roleId)) {
+                    throw new ErrorModel(StatusCode.badRequest, `Such role with id ${roleId} doesn't exists!`)
+                }
             })
-            if (!rolesExist) {
-                throw new ErrorModel(StatusCode.badRequest, 'Such role doesn\'t exists!')
-            }
         }
 
         next()

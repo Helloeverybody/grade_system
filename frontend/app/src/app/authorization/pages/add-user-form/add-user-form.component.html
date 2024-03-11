@@ -1,0 +1,80 @@
+@defer (when !viewModel.formLoading()) {
+	<div class="tui-container">
+		<h1>Добавить нового сотрудника</h1>
+		<form [formGroup]="viewModel.form" class="tui-form">
+			<tui-input [formControlName]="'login'" class="tui-form__row">
+				Логин
+				<input
+					tuiTextfield
+					placeholder="Введите логин от LDAP"
+				/>
+			</tui-input>
+			<tui-input [formControlName]="'email'" class="tui-form__row">
+				Email
+				<input
+					tuiTextfield
+					placeholder="Введите e-mail сотрудника"
+					type="email"
+				/>
+			</tui-input>
+			<tui-multi-select
+				placeholder="Ignored text"
+				class="tui-form__row"
+				[editable]="false"
+				[formControlName]="'roles'"
+				[valueContent]="multiselectTag"
+			>
+				Выберите роли для нового сотрудника
+				<tui-data-list-wrapper
+					*tuiDataList
+					tuiMultiSelectGroup
+					[items]="viewModel.roleList()"
+					[itemContent]="multiselectItem"
+					[emptyContent]="'Роли не найдены'"
+				></tui-data-list-wrapper>
+			</tui-multi-select>
+			<tui-notification class="tui-form__row">
+				Пароль для сотрудника сгенерируется автоматически
+			</tui-notification>
+			<button
+				tuiButton
+				[showLoader]="viewModel.submitLoading()"
+				[disabled]="viewModel.submitLoading()"
+				(click)="sendRegistrationForm()"
+				class="tui-form__buttons"
+			>
+				Регистрация
+			</button>
+			<tui-error [error]="viewModel.requestError()"></tui-error>
+		</form>
+	</div>
+} @placeholder {
+	тут будет форма!
+}
+
+<ng-template
+	#multiselectTag
+	let-list
+>
+	<div class="t-wrapper">
+		<ng-container *ngFor="let item of list">
+			<tui-tag
+				size="m"
+				class="t-tag"
+				[removable]="true"
+				[value]="viewModel.stringifyRole(item)"
+				(edited)="viewModel.removeRoleFromSelected(item)"
+			></tui-tag>
+		</ng-container>
+	</div>
+</ng-template>
+
+
+<ng-template
+	#multiselectItem
+	let-data
+>
+	{{data.title}}
+	{{data.description}}
+</ng-template>
+

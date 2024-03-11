@@ -1,13 +1,9 @@
 import {Routes} from "@angular/router";
-import {AddUserComponent} from "./pages/add-user/add-user.component";
+import {AddUserPageComponent} from "./pages/add-user-page/add-user-page.component";
 
 export const routes: Routes = [
   {
-    path: 'sign-in',
-    component: AddUserComponent
-  },
-  {
-    path: 'sign-up',
-    component: AddUserComponent
+    path: 'create-user',
+    component: AddUserPageComponent
   }
 ]

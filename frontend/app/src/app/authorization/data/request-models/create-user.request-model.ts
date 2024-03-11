@@ -1,4 +1,5 @@
 export interface ICreateUserRequestModel {
-  username: string,
-  email: string
+	username: string,
+	email: string,
+	roles: string[]
 }

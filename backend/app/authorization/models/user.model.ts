@@ -1,5 +1,6 @@
 import {model, Schema} from "mongoose";
 import {Role} from "../../entities/roles.enum";
+import {ObjectId} from "mongodb";
 
 export const User = model(
     "User",
@@ -17,9 +18,7 @@ export const User = model(
             required: true
         },
         roles: {
-            type: [String],
-            enum: Object.keys(Role),
-            default: [Role.employee]
+            type: [ObjectId]
         },
     })
 );

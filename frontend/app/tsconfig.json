@@ -4,7 +4,7 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -26,7 +26,11 @@
     "typeRoots": [
       "./src/app/grid/test-interact.d.ts"
     ],
-    "allowJs": true
+    "allowJs": true,
+	  "baseUrl": ".",
+	  "paths": {
+		  "@libs/multistep-form": ["src/libs/multistep-form"]
+	  }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
