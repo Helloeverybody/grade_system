@@ -1,8 +1,7 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {TuiButtonModule, TuiLoaderModule} from "@taiga-ui/core";
 import {TuiIslandModule} from "@taiga-ui/kit";
-import {FormStepDirective} from "@libs/multistep-form";
-import {CREATE_USER_SUCCESS_VM} from "../../tokens/create-user-success-vm";
+import {ADD_USER_SUCCESS_VM} from "../../tokens/add-user-success-vm";
 import {AsyncPipe, NgIf} from "@angular/common";
 
 @Component({
@@ -20,5 +19,5 @@ import {AsyncPipe, NgIf} from "@angular/common";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddUserSuccessComponent {
-	protected viewModel = inject(CREATE_USER_SUCCESS_VM);
+	protected viewModel = inject(ADD_USER_SUCCESS_VM);
 }

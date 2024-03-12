@@ -1,7 +1,7 @@
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ICreateUserRequestModel} from "../data/request-models/create-user.request-model";
 import {signal} from "@angular/core";
-import {IRoleResponseModel} from "../data/response-models/role.response-model";
+import {IRoleResponseModel} from "../../../data/response-models/role.response-model";
+import {ICreateUserRequestModel} from "../../../data/request-models/create-user.request-model";
 
 export class CreateUserFormViewModel {
 	public submitLoading = signal(false);

@@ -1,9 +1,8 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
 import {
 	TuiDataListWrapperModule,
 	TuiInputModule,
 	TuiMultiSelectModule,
-	TuiSelectModule,
 	TuiStringifyContentPipeModule, TuiTagModule
 } from "@taiga-ui/kit";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -12,9 +11,7 @@ import {CreateUserFormViewModel} from "../../view-models/create-user-form-view.m
 import {take} from "rxjs";
 import {CreateUserFormManagerService} from "../../services/create-user-form-manager.service";
 import {NgForOf} from "@angular/common";
-import {FormStepDirective} from "@libs/multistep-form";
-import {MultistepFormManagerService} from "../../../../libs/multistep-form/services/multistep-form-manager.service";
-import {CREATE_USER_SUCCESS_VM} from "../../tokens/create-user-success-vm";
+import {MultistepFormManagerService} from "@libs/multistep-form";
 
 @Component({
 	selector: 'add-user-form',

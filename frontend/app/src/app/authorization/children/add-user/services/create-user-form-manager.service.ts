@@ -1,16 +1,16 @@
 import {inject, Injectable} from "@angular/core";
-import {AuthorizationRequestService} from "../data/services/authorization-request.service";
 import {CreateUserFormViewModel} from "../view-models/create-user-form-view.model";
-import {catchError, EMPTY, finalize, map, Observable, of, tap, throwError} from "rxjs";
-import {ICreateUserResponseModel} from "../data/response-models/create-user.response-model";
-import {IRoleResponseModel} from "../data/response-models/role.response-model";
+import {catchError, EMPTY, finalize, map, Observable, tap, throwError} from "rxjs";
 import {CreateUserSuccessViewModel} from "../view-models/create-user-success.view-model";
-import {CREATE_USER_SUCCESS_VM} from "../tokens/create-user-success-vm";
+import {ADD_USER_SUCCESS_VM} from "../tokens/add-user-success-vm";
+import {IRoleResponseModel} from "../../../data/response-models/role.response-model";
+import {AuthorizationRequestService} from "../../../data/services/authorization-request.service";
+import {ICreateUserResponseModel} from "../../../data/response-models/create-user.response-model";
 
 @Injectable()
 export class CreateUserFormManagerService {
 	private _authRequestService: AuthorizationRequestService = inject(AuthorizationRequestService);
-	protected successViewModel$ = inject(CREATE_USER_SUCCESS_VM);
+	protected successViewModel$ = inject(ADD_USER_SUCCESS_VM);
 
 	public fillViewModel(viewModel: CreateUserFormViewModel): Observable<void> {
 		return this._authRequestService.getRoles()

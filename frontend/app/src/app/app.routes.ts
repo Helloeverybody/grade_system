@@ -9,7 +9,7 @@ export const routes: Routes = [
 	},
 	{
 		path: '',
-		redirectTo: 'grid',
+		redirectTo: 'authorization',
 		pathMatch: 'full'
 	},
 	{

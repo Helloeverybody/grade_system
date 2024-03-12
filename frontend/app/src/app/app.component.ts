@@ -10,8 +10,10 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [RouterOutlet, TuiRootModule, TuiDialogModule, TuiAlertModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-    providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}]
+    providers: [
+		{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}
+	]
 })
 export class AppComponent {
-  title = 'grade-system';
+
 }

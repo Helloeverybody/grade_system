@@ -1,4 +1,4 @@
-import {ICreateUserResponseModel} from "../data/response-models/create-user.response-model";
+import {ICreateUserResponseModel} from "../../../data/response-models/create-user.response-model";
 
 export class CreateUserSuccessViewModel {
 	password: string;

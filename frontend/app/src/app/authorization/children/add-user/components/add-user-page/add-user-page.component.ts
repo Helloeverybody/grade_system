@@ -1,13 +1,12 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
-import {AuthorizationRequestService} from "../../data/services/authorization-request.service";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CreateUserFormManagerService} from "../../services/create-user-form-manager.service";
-import {CREATE_USER_SUCCESS_VM} from "../../tokens/create-user-success-vm";
+import {ADD_USER_SUCCESS_VM} from "../../tokens/add-user-success-vm";
 import {BehaviorSubject} from "rxjs";
 import {AddUserFormComponent} from "../add-user-form/add-user-form.component";
 import {AddUserSuccessComponent} from "../add-user-success/add-user-success.component";
 import {MultistepFormModule} from "@libs/multistep-form";
-import {TuiStepperModule} from "@taiga-ui/kit";
 import {TuiDropdownModule} from "@taiga-ui/core";
+import {AuthorizationRequestService} from "../../../../data/services/authorization-request.service";
 
 @Component({
 	selector: 'add-user-page',
@@ -16,7 +15,7 @@ import {TuiDropdownModule} from "@taiga-ui/core";
 		AuthorizationRequestService,
 		CreateUserFormManagerService,
 		{
-			provide: CREATE_USER_SUCCESS_VM,
+			provide: ADD_USER_SUCCESS_VM,
 			useValue: new BehaviorSubject(null)
 		}
 	],
