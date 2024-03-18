@@ -9,6 +9,7 @@ import {pingController} from "./controllers/ping.controller";
 import {verifyToken} from "./middleware/verify-token";
 import {checkRole} from "./middleware/check-role";
 import {Role} from "../entities/roles.enum";
+import {userInfoController} from "./controllers/user-info.controller";
 
 export function setAuthRoutes(app: Application) {
     app.post('/auth/create-user', [verifyToken, checkRole(Role.admin), checkDuplications, checkRoleExists], createUserController);
@@ -16,4 +17,5 @@ export function setAuthRoutes(app: Application) {
     app.post('/auth/sign-out', signOutController);
     app.get('/auth/roles', getRolesController);
     app.get('/auth/ping', [verifyToken], pingController);
+    app.get('/user-info', [verifyToken], userInfoController);
 }

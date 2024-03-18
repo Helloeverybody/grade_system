@@ -2,7 +2,7 @@ import {model, Schema} from "mongoose";
 import {Role} from "../../entities/roles.enum";
 import {ObjectId} from "mongodb";
 
-export const User = model(
+export const UserModel = model(
     "User",
     new Schema({
         username: {
@@ -17,8 +17,8 @@ export const User = model(
             type: String,
             required: true
         },
-        roles: {
-            type: [ObjectId]
-        },
+        roles: [ObjectId],
+        grade: ObjectId,
+        department: ObjectId
     })
 );

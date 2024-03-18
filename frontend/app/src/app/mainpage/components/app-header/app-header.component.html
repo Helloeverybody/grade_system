@@ -1,0 +1,16 @@
+<div class="header">
+	<h1>
+		Грейдирование
+	</h1>
+	<nav class="header__tab-bar" *ngIf="filteredButtons$ | async as buttons">
+		<a *ngFor="let button of buttons"
+			[routerLink]="button.link"
+			routerLinkActive
+			[relativeTo]="activatedRoute"
+			class=""
+			tuiButton
+			appearance="flat">
+			{{button.title}}
+		</a>
+	</nav>
+</div>

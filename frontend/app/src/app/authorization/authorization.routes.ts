@@ -3,7 +3,7 @@ import {AddUserPageComponent} from "./children/add-user/components/add-user-page
 import {SignInPageComponent} from "./children/sign-in/components/sign-in/sign-in-page.component";
 import {isAuthorizedGuard} from "./guards/is-authorized.guard";
 
-export const routes: Routes = [
+export const authorizationRoutes: Routes = [
 	{
 		path: '',
 		redirectTo: 'sign-in',

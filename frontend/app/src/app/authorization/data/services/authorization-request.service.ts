@@ -6,6 +6,7 @@ import {ICreateUserResponseModel} from "../response-models/create-user.response-
 import {IRoleResponseModel} from "../response-models/role.response-model";
 import {ISignInRequestModel} from "../request-models/sign-in.request-model";
 import {ISignInResponseModel} from "../response-models/sign-in.response-model";
+import {IUserInfoResponseModel} from "../response-models/user-info.response-model";
 
 @Injectable({
 	providedIn: 'root'
@@ -46,5 +47,12 @@ export class AuthorizationRequestService {
 	 * */
 	public ping(): Observable<void> {
 		return this._httpClient.get<void>('/api/auth/ping')
+	}
+
+	/**
+	 * Информация о текущем авторизованном пользователе
+	 * */
+	public userInfo(): Observable<IUserInfoResponseModel> {
+		return this._httpClient.get<IUserInfoResponseModel>('/api/user-info')
 	}
 }

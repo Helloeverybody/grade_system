@@ -5,6 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
+    "node-run": "node dist/app.js",
     "run-server": "tsc-watch --onSuccess \"node dist/app.js\"",
     "npmi": "npm i"
   },

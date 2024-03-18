@@ -20,8 +20,7 @@ import {AuthorizationRequestService} from "../../../../data/services/authorizati
 		ReactiveFormsModule
 	],
 	providers: [
-		SignInFormManagerService,
-		AuthorizationRequestService
+		SignInFormManagerService
 	],
 	templateUrl: './sign-in-page.component.html',
 	styleUrl: './sign-in-page.component.css'

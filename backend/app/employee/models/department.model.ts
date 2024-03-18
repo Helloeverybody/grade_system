@@ -1,7 +1,7 @@
 import {model, Schema} from "mongoose";
 import {ObjectId} from "mongodb";
 
-export const departmentSchema = new Schema({
+const departmentSchema = new Schema({
     director: {
         type: ObjectId,
         required: true
@@ -11,4 +11,3 @@ export const departmentSchema = new Schema({
 });
 
 export const DepartmentModel = model("Department", departmentSchema);
-

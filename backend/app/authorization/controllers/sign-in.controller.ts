@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
 import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
-import {User} from "../models/user.model";
+import {UserModel} from "../models/user.model";
 import {compareSync} from "bcrypt";
 import {ErrorModel} from "../../errors/models/error.model";
 import {StatusCode} from "../../errors/enums/status-code.enum";
@@ -13,10 +13,10 @@ import {Role} from "../../entities/roles.enum";
 export async function signInController(request: Request, response: Response) {
     wrapErrorResponse(async () => {
         const [userByUsername, userByEmail] = await Promise.all([
-            User.findOne({
+            UserModel.findOne({
                 username: request.body.username
             }).exec(),
-            User.findOne({
+            UserModel.findOne({
                 email: request.body.email
             }).exec()
         ])

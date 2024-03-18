@@ -1,6 +1,6 @@
 export enum Role {
     admin = 'admin',
-    gradeEditor = 'gradeEditor',
-    knowledgeBaseEditor = 'knowledgeBaseEditor',
+    hr = 'hr',
+    manager = 'manager',
     employee = 'employee'
 }
