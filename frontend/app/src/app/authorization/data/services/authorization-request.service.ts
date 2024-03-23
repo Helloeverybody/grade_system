@@ -18,14 +18,14 @@ export class AuthorizationRequestService {
 	* Создать профиль нового сотрудника
 	* */
 	public createUser(requestModel: ICreateUserRequestModel): Observable<ICreateUserResponseModel> {
-		return this._httpClient.post<ICreateUserResponseModel>('/api/auth/create-user', requestModel)
+		return this._httpClient.post<ICreateUserResponseModel>('/api/user/create', requestModel)
 	}
 
 	/**
 	 * Получить все доступные роли
 	 * */
 	public getRoles(): Observable<IRoleResponseModel[]> {
-		return this._httpClient.get<IRoleResponseModel[]>('/api/auth/roles')
+		return this._httpClient.get<IRoleResponseModel[]>('/api/user/roles')
 	}
 
 	/**
@@ -53,6 +53,6 @@ export class AuthorizationRequestService {
 	 * Информация о текущем авторизованном пользователе
 	 * */
 	public userInfo(): Observable<IUserInfoResponseModel> {
-		return this._httpClient.get<IUserInfoResponseModel>('/api/user-info')
+		return this._httpClient.get<IUserInfoResponseModel>('/api/user/info')
 	}
 }
