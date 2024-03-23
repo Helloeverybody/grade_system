@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="088890d1-4bd6-4823-bd39-ecb0456383dc" name="Changes" comment="added grade history">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2bXDeMZQtfEN9QTPZNvLihg1OZh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "20.11.0",
+    "javascript.nodejs.core.library.typings.version": "20.11.7",
+    "last_opened_file_path": "C:/Users/vbocharov/WebstormProjects/grade-system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.node-run.executor": "Debug",
+    "npm.npmi.executor": "Run",
+    "npm.run-db-connetion.executor": "Run",
+    "npm.run-server.executor": "Run",
+    "npm.run.executor": "Run",
+    "npm.start.executor": "Run",
+    "npm.test.executor": "Run",
+    "npm.watch.executor": "Run",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "ts.external.directory.path": "C:\\Users\\vbocharov\\WebstormProjects\\grade-system\\backend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\grade\models" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\grade\controllers" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\grade" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\authorization\tokens" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\authorization\controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\grade" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\employee" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\authorization\children\add-user" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\libs\multistep-form\directives" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.run-server">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="node-run" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="node-run" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="npmi" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="npmi" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="run-db-connetion" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/mongoapp/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="run-db-connetion" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="run-server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="run-server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/app/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.run-server" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.node-run" />
+        <item itemvalue="npm.npmi" />
+        <item itemvalue="npm.run-db-connetion" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="088890d1-4bd6-4823-bd39-ecb0456383dc" name="Changes" comment="" />
+      <created>1706352625034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706352625034</updated>
+      <workItem from="1706352627683" duration="7899000" />
+      <workItem from="1706375840085" duration="3677000" />
+      <workItem from="1706381342230" duration="2000" />
+      <workItem from="1706509693615" duration="20000" />
+      <workItem from="1707638221367" duration="1810000" />
+      <workItem from="1707715263910" duration="318000" />
+      <workItem from="1709327204586" duration="4207000" />
+      <workItem from="1709332379646" duration="454000" />
+      <workItem from="1709369428171" duration="42644000" />
+      <workItem from="1709497211779" duration="147000" />
+      <workItem from="1709976991182" duration="35756000" />
+      <workItem from="1710138692244" duration="953000" />
+      <workItem from="1710185827175" duration="6513000" />
+      <workItem from="1710260512579" duration="1260000" />
+      <workItem from="1710261809811" duration="78000" />
+      <workItem from="1710261908493" duration="27000" />
+      <workItem from="1710261952497" duration="8212000" />
+      <workItem from="1710270295057" duration="3821000" />
+      <workItem from="1710312700550" duration="581000" />
+      <workItem from="1710334591490" duration="61000" />
+      <workItem from="1710440970889" duration="3335000" />
+      <workItem from="1710569778080" duration="20679000" />
+      <workItem from="1710743811844" duration="42000" />
+      <workItem from="1710782831751" duration="10273000" />
+      <workItem from="1710957251340" duration="6938000" />
+      <workItem from="1711182215382" duration="1381000" />
+      <workItem from="1711184060333" duration="302000" />
+      <workItem from="1711184377921" duration="298000" />
+    </task>
+    <task id="LOCAL-00001" summary="added backend and frontend apps">
+      <option name="closed" value="true" />
+      <created>1709332438091</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709332438091</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added employee and department rests on backend. added mongdb connection. added typescript on backend">
+      <option name="closed" value="true" />
+      <created>1709408145303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709408145303</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added JWT authorization">
+      <option name="closed" value="true" />
+      <created>1709497383283</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709497383283</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added taiga-ui to front, added adding user page to front, changed auth/signup to auth/create-user in back">
+      <option name="closed" value="true" />
+      <created>1710019631102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710019631102</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added role model to backend, added getting roles from backend, added role choosing on frontend, added roles to creating user to frontend, added stepping forms to frontend, added password generation on backend. finished user create process">
+      <option name="closed" value="true" />
+      <created>1710192603391</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710192603391</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added authorization page, authorization guard, ping request">
+      <option name="closed" value="true" />
+      <created>1710274685063</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710274685063</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added mainpage, header, personal page to frontend. added grade-tree system (with tree) and departments to backend.">
+      <option name="closed" value="true" />
+      <created>1710795010776</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710795010776</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added grade history">
+      <option name="closed" value="true" />
+      <created>1711183695393</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711183695393</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added backend and frontend apps" />
+    <MESSAGE value="added employee and department rests on backend. added mongdb connection. added typescript on backend" />
+    <MESSAGE value="added JWT authorization" />
+    <MESSAGE value="added taiga-ui to front, added adding user page to front, changed auth/signup to auth/create-user in back" />
+    <MESSAGE value="added role model to backend, added getting roles from backend, added role choosing on frontend, added roles to creating user to frontend, added stepping forms to frontend, added password generation on backend. finished user create process" />
+    <MESSAGE value="added authorization page, authorization guard, ping request" />
+    <MESSAGE value="added mainpage, header, personal page to frontend. added grade-tree system (with tree) and departments to backend." />
+    <MESSAGE value="added grade history" />
+    <option name="LAST_COMMIT_MESSAGE" value="added grade history" />
+  </component>
+</project>
