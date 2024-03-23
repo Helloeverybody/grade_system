@@ -8,7 +8,10 @@ export async function getGradeById(gradeId: string) {
     let grade: Document = await GradeModel.findById(gradeId).exec();
 
     if (!grade) {
-        const gradeNode = await GradeTreeNodeModel.findById(gradeId).exec()
+        const gradeNode = await GradeTreeNodeModel
+            .findById(gradeId)
+            .select({ __v: 0 })
+            .exec()
 
         if (!gradeNode) {
             throw new ErrorModel(StatusCode.notFound, 'Grade not found')

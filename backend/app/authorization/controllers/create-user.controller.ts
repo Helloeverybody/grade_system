@@ -6,6 +6,8 @@ import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
 import {ErrorModel} from "../../errors/models/error.model";
 import {ObjectId} from "mongodb";
 import { generate } from "generate-password";
+import {GradeHistoryItemModel} from "../../grade/models/grade-history.model";
+import {defaultGradeOfDepartment} from "../../employee/utils/default-grade-of-department";
 
 export async function createUserController(request: Request, response: Response) {
     wrapErrorResponse(async () => {
@@ -16,10 +18,20 @@ export async function createUserController(request: Request, response: Response)
             numbers: true
         });
 
+        const defaultGrade = await defaultGradeOfDepartment(request.body.department);
+
+        const historyItem = await new GradeHistoryItemModel({
+            grade: [
+                defaultGrade
+            ]
+        }).save();
+
         const user = new UserModel({
             username: request.body.username,
             email: request.body.email,
             password: hashSync(password, 8),
+            history: [historyItem.id],
+            grade: defaultGrade.id
         });
 
         const roles: [] = request.body.roles;
@@ -33,6 +45,10 @@ export async function createUserController(request: Request, response: Response)
             throw new ErrorModel(StatusCode.badRequest, user)
         }
 
-        response.status(StatusCode.ok).send({ login: user.username, password, roles: user.roles });
+        response.status(StatusCode.ok).send({
+            login: user.username,
+            password,
+            roles: user.roles
+        });
     }, response)
 }

@@ -15,10 +15,17 @@ export function getGradeTreeController(request: Request, response: Response) {
 }
 
 async function constructGradeTreeFromDB(entrypoint: ObjectId): Promise<IGradeNode> {
-    const currentNode = await GradeTreeNodeModel.findById(entrypoint).exec();
+    const currentNode = await GradeTreeNodeModel
+        .findById(entrypoint)
+        .select({ __v: 0 })
+        .exec();
+
     const node: IGradeNode = {
         id: currentNode.id,
-        grade: await GradeModel.findById(currentNode.grade).exec()
+        grade: await GradeModel
+            .findById(currentNode.grade)
+            .select({ __v: 0, _id: 0 })
+            .exec()
     };
 
     if (currentNode.children?.length) {

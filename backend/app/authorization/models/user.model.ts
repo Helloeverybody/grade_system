@@ -1,6 +1,7 @@
 import {model, Schema} from "mongoose";
 import {Role} from "../../entities/roles.enum";
 import {ObjectId} from "mongodb";
+import {GradeHistoryItemModel} from "../../grade/models/grade-history.model";
 
 export const UserModel = model(
     "User",
@@ -19,6 +20,7 @@ export const UserModel = model(
         },
         roles: [ObjectId],
         grade: ObjectId,
-        department: ObjectId
+        department: ObjectId,
+        history: [ObjectId],
     })
 );
