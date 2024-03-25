@@ -1,10 +1,10 @@
 import {model, Schema} from "mongoose";
 
-const performanceReviewSchema = new Schema({
+export const performanceReviewSchema = new Schema({
     title: String,
-    description: String,
+    agenda: String,
     startDateTime: Date,
-    conclusion: String
+    status: String
 });
 
-export const performanceReviewModel = model("PerformanceReview", performanceReviewSchema);
+export const PerformanceReviewModel = model("PerformanceReview", performanceReviewSchema);

@@ -3,8 +3,6 @@ import {APP_HEADER_BUTTONS} from "../../tokens/app-header-buttons.token";
 import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {TuiButtonModule} from "@taiga-ui/core";
-import {USER_INFO} from "../../../authorization/tokens/user-info.token";
-import {catchError, map, of, startWith} from "rxjs";
 import {AppHeaderManagerService} from "../../services/app-header-manager.service";
 
 @Component({

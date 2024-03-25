@@ -8,6 +8,7 @@ const departmentSchema = new Schema({
     },
     employees: Array(ObjectId),
     gradeTreeId: ObjectId,
+    departmentSettings: ObjectId
 });
 
 export const DepartmentModel = model("Department", departmentSchema);

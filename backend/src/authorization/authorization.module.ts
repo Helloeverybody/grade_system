@@ -22,7 +22,7 @@ export class AuthorizationModule implements NestModule {
                 checkDuplicationsMiddleware,
                 checkRoleExistsMiddleware
             )
-            .forRoutes('/user/create');
+            .forRoutes('user/create');
 
         consumer
             .apply(

@@ -17,8 +17,8 @@ export const UserModel = model(
             required: true
         },
         roles: [ObjectId],
-        grade: ObjectId,
-        department: ObjectId,
+        nextGrade: ObjectId,
         history: [ObjectId],
+        department: ObjectId,
     })
 );

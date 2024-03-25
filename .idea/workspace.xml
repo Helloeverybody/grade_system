@@ -4,76 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088890d1-4bd6-4823-bd39-ecb0456383dc" name="Changes" comment="added nest project">
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/authorization/authorization.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/authorization/controllers/authorization.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/authorization/controllers/user-data.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/authorization/dto/create-user.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/authorization/dto/sign-in.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/employee/dto/create-department.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/grade/controllers/grade.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/grade/controllers/user-grade-history.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-nest/src/grade/dto/grade-create.dto.ts" afterDir="false" />
+    <list default="true" id="088890d1-4bd6-4823-bd39-ecb0456383dc" name="Changes" comment="added grade history, grade and target receiving">
+      <change afterPath="$PROJECT_DIR$/backend/src/authorization/utils/create-default-next-grade.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/employee/models/department-settings.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/grade/controllers/grade-history.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/grade/controllers/targets.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/grade/models/next-user-grade.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/authorization/data/services/user-info-buffer.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/authorization/data/services/user-request.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/data/response-models/grade.response-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/data/response-models/next-grade.response-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/data/response-models/target.response-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/data/response-models/user-history-item.response-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/data/services/grade-personal-request.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/view-models/grade-personal-info.view-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/view-models/user-grade.view-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/libs/utils/buffered-token/services/buffered-token.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/libs/utils/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/auth.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/config/auth.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/config/auth.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/controllers/create-user.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/controllers/get-roles.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/controllers/ping.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/controllers/sign-in.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/controllers/sign-out.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/controllers/user-info.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/middleware/check-duplications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/middleware/check-duplications.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/middleware/check-role-exists.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/middleware/check-role-exists.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/middleware/check-role.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/middleware/check-role.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/middleware/verify-token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/middleware/verify-token.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/models/role.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/models/role.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/authorization/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/employee/controllers/department.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/employee/controllers/department.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/employee/controllers/employee.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/employee/employee.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/employee/employee.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/employee/models/department.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/employee/models/department.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/employee/utils/default-grade-of-department.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/employee/utils/default-grade-of-department.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/department.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/employee.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/grade-tree.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/grade.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/knowledge-base.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/knowledge.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/entities/roles.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/authorization/enums/roles.enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/errors/enums/status-code-message.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/errors/enums/status-code-message.enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/errors/enums/status-code.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/errors/enums/status-code.enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/errors/models/error.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/errors/models/error.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/errors/utils/wrap-error-response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/errors/utils/wrap-error-response.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/controllers/get-grade-by-id.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/controllers/get-grade-tree.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/controllers/grade-tree.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/controllers/get-grade-user-history.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/controllers/get-grade.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/controllers/post-grade.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/grade.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/grade.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/models/grade-history.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/models/grade-history.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/models/grade-tree-node.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/models/grade-tree-node.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/models/grade.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/models/grade.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/models/performance-review.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/models/performance-review.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/models/target.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/models/target.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/utils/add-grade-to-history.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/utils/add-grade-to-history.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/utils/get-grade-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/utils/get-grade-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/grade/utils/get-grade-node-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/grade/utils/get-grade-node-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/authorization/authorization.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/authorization/authorization.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/authorization/controllers/authorization.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/authorization/controllers/authorization.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/authorization/controllers/user-data.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/authorization/controllers/user-data.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/authorization/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/authorization/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/employee/controllers/department.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/employee/controllers/department.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/employee/dto/create-department.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/employee/dto/create-department.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/employee/models/department.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/employee/models/department.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/employee/utils/default-grade-of-department.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/employee/utils/default-grade-of-department.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/controllers/grade.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/controllers/grade.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/controllers/user-grade-history.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/grade.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/grade.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/models/grade-history.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/models/grade-history-item.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/models/grade.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/models/grade.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/models/performance-review.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/models/performance-review.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/utils/add-grade-to-history.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/utils/add-grade-to-history.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/grade/utils/get-grade-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/grade/utils/get-grade-by-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/authorization/children/add-user/components/add-user-page/add-user-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/authorization/children/add-user/components/add-user-page/add-user-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/authorization/children/add-user/services/create-user-form-manager.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/authorization/children/add-user/services/create-user-form-manager.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/app/authorization/data/services/authorization-request.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/authorization/data/services/authorization-request.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/authorization/tokens/user-info-update.token.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/authorization/tokens/user-info.token.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/components/personal-dashboard/personal-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/components/personal-dashboard/personal-dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/components/personal-dashboard/personal-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/components/personal-dashboard/personal-dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/services/grade-info.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/services/grade-info.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/mainpage/children/personal/services/grade-request.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/mainpage/components/app-header/app-header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/components/app-header/app-header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app/mainpage/services/app-header-manager.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app/mainpage/services/app-header-manager.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,10 +118,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "new-backend",
+    "git-widget-placeholder": "master",
     "javascript.nodejs.core.library.configured.version": "20.11.0",
     "javascript.nodejs.core.library.typings.version": "20.11.7",
-    "last_opened_file_path": "C:/Users/vbocharov/WebstormProjects/grade-system/backend-nest/src/employee",
+    "last_opened_file_path": "C:/Users/vbocharov/WebstormProjects/grade-system/frontend/app/src/app/mainpage/children/personal/data/response-models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -158,32 +135,34 @@
     "npm.run-server.executor": "Run",
     "npm.run.executor": "Run",
     "npm.start.executor": "Run",
+    "npm.start:debug (1).executor": "Debug",
     "npm.start:debug.executor": "Run",
+    "npm.start:dev (1).executor": "Run",
     "npm.start:dev.executor": "Run",
     "npm.test.executor": "Run",
     "npm.watch.executor": "Run",
     "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "C:\\Users\\vbocharov\\WebstormProjects\\grade-system\\frontend\\app\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\vbocharov\\WebstormProjects\\grade-system\\backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\mainpage\children\personal\data\response-models" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\src\grade\models" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\src\grade\controllers" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\authorization\data\services" />
       <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend-nest\src\employee" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend-nest\src\grade" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend-nest\src\authorization\enums" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend-nest\src\authorization" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend-nest\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\grade" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\app\employee" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\authorization\children\add-user" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\libs\multistep-form\directives" />
-      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\mainpage\children\personal\data" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\mainpage\children\personal\data\services\response-models" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\mainpage\children\personal\data\services" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\frontend\app\src\app\authorization\data\services" />
+      <recent name="C:\Users\vbocharov\WebstormProjects\grade-system\backend\src\domains\entities" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:dev">
+  <component name="RunManager" selected="npm.start:dev (1)">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -192,26 +171,6 @@
       <command value="run" />
       <scripts>
         <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="npmi (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/backend-nest/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="npmi" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="run-server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/backend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="run-server" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -227,11 +186,31 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start:debug (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:debug" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start:debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/backend-nest/package.json" />
       <command value="run" />
       <scripts>
         <script value="start:debug" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -249,11 +228,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:dev" />
+        <item itemvalue="npm.start:dev (1)" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start:debug (1)" />
+        <item itemvalue="npm.start:dev" />
         <item itemvalue="npm.start:debug" />
-        <item itemvalue="npm.npmi (1)" />
-        <item itemvalue="npm.run-server" />
       </list>
     </recent_temporary>
   </component>
@@ -295,6 +274,8 @@
       <workItem from="1711184377921" duration="8345000" />
       <workItem from="1711194304458" duration="217000" />
       <workItem from="1711194533197" duration="1805000" />
+      <workItem from="1711266299385" duration="7735000" />
+      <workItem from="1711281867077" duration="12523000" />
     </task>
     <task id="LOCAL-00001" summary="added backend and frontend apps">
       <option name="closed" value="true" />
@@ -407,7 +388,8 @@
     <MESSAGE value="added mainpage, header, personal page to frontend. added grade-tree system (with tree) and departments to backend." />
     <MESSAGE value="added grade history" />
     <MESSAGE value="added nest project" />
-    <option name="LAST_COMMIT_MESSAGE" value="added nest project" />
+    <MESSAGE value="moved backend to nest framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved backend to nest framework" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -415,7 +397,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/backend-nest/src/authorization/controllers/authorization.controller.ts</url>
           <line>60</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

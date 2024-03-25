@@ -1,4 +1,4 @@
-import {Request, Response} from "express";
+import {Response} from "express";
 import {DepartmentModel} from "../models/department.model";
 import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
 import {GradeTreeNodeModel} from "../../grade/models/grade-tree-node.model";
@@ -7,6 +7,7 @@ import {StatusCode} from "../../errors/enums/status-code.enum";
 import {Body, Controller, Get, Param, Post, Res} from "@nestjs/common";
 import {ICreateDepartmentDto} from "../dto/create-department.dto";
 import {ObjectId} from "mongodb";
+import {DepartmentSettingsModel} from "../models/department-settings.model";
 
 @Controller('department')
 export class DepartmentController {
@@ -19,7 +20,7 @@ export class DepartmentController {
     }
 
     @Get(':id')
-    getByIdDepartmentController (@Param('id') id, @Res() response) {
+    getByIdDepartment (@Param('id') id, @Res() response) {
         wrapErrorResponse(async () => {
             const result = await DepartmentModel.findById(id).exec()
             response.send(result)
@@ -27,10 +28,24 @@ export class DepartmentController {
     }
 
     @Post()
-    postDepartmentController(@Body() body: ICreateDepartmentDto, @Res() response: Response) {
+    createDepartment(@Body() body: ICreateDepartmentDto, @Res() response: Response) {
         wrapErrorResponse(async () => {
+            //TODO сделать ресты для настройки отдела
+            const newDepartmentSettings = await new DepartmentSettingsModel({
+                defaultPerformanceReviewModel: {
+                    title: body.defaultPerformanceReviewModel.title,
+                    agenda: body.defaultPerformanceReviewModel.agenda,
+                    timeFromEmploymentDay: body.defaultPerformanceReviewModel.timeFromEmploymentDay
+                },
+                defaultFirstTargets: body.defaultFirstTargets ? body.defaultFirstTargets.map((target) => ({
+                    title: target.title,
+                    description: target.description
+                })) : undefined
+            }).save();
+
             const newDepartmentModel = new DepartmentModel({
-                director: body.director
+                director: body.director,
+                departmentSettings: newDepartmentSettings.id
             });
 
             const defaultGrade = await new GradeModel({

@@ -29,7 +29,9 @@
     "allowJs": true,
 	  "baseUrl": ".",
 	  "paths": {
-		  "@libs/multistep-form": ["src/libs/multistep-form"]
+		  "@libs/multistep-form": ["src/libs/multistep-form"],
+		  "@libs/forms": ["src/libs/forms-common"],
+		  "@libs/utils": ["src/libs/utils"]
 	  }
   },
   "angularCompilerOptions": {

@@ -8,8 +8,9 @@ import {hashSync} from "bcrypt";
 import {RoleModel} from "../models/role.model";
 import {ICreateUserDto} from "../dto/create-user.dto";
 import {generate} from "generate-password";
-import {GradeHistoryItemModel} from "../../grade/models/grade-history.model";
 import {defaultGradeOfDepartment} from "../../employee/utils/default-grade-of-department";
+import {GradeHistoryItemModel} from "../../grade/models/grade-history-item.model";
+import {createDefaultNextGrade} from "../utils/create-default-next-grade";
 
 @Controller('user')
 export class UserDataController {
@@ -26,23 +27,20 @@ export class UserDataController {
             const defaultGrade = await defaultGradeOfDepartment(body.department);
 
             const historyItem = await new GradeHistoryItemModel({
-                grade: [
-                    defaultGrade
-                ]
+                grade: defaultGrade.toObject({ versionKey: false })
             }).save();
+
+            const nextGradeId =  await createDefaultNextGrade(body.department);
 
             const user = new UserModel({
                 username: body.username,
                 email: body.email,
                 password: hashSync(password, 8),
                 history: [historyItem.id],
-                grade: defaultGrade.id
+                grade: defaultGrade.id,
+                nextGrade: nextGradeId,
+                roles: body.roles.map((stringRole) => new ObjectId(stringRole))
             });
-
-            const roles: string[] = body.roles;
-            if (roles?.length > 0) {
-                user.set('roles', roles.map((stringRole) => new ObjectId(stringRole)))
-            }
 
             try {
                 await user.save()

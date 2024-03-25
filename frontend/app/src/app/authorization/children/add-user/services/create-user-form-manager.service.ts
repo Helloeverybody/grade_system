@@ -4,16 +4,16 @@ import {catchError, EMPTY, finalize, map, Observable, tap, throwError} from "rxj
 import {CreateUserSuccessViewModel} from "../view-models/create-user-success.view-model";
 import {ADD_USER_SUCCESS_VM} from "../tokens/add-user-success-vm";
 import {IRoleResponseModel} from "../../../data/response-models/role.response-model";
-import {AuthorizationRequestService} from "../../../data/services/authorization-request.service";
 import {ICreateUserResponseModel} from "../../../data/response-models/create-user.response-model";
+import {UserRequestService} from "../../../data/services/user-request.service";
 
 @Injectable()
 export class CreateUserFormManagerService {
-	private _authRequestService: AuthorizationRequestService = inject(AuthorizationRequestService);
+	private _userRequestService: UserRequestService = inject(UserRequestService);
 	protected successViewModel$ = inject(ADD_USER_SUCCESS_VM);
 
 	public fillViewModel(viewModel: CreateUserFormViewModel): Observable<void> {
-		return this._authRequestService.getRoles()
+		return this._userRequestService.getRoles()
 			.pipe(
 				tap((values: IRoleResponseModel[]) => {
 					viewModel.initialize(values)
@@ -42,7 +42,7 @@ export class CreateUserFormManagerService {
 	}
 
 	private createUser(viewModel: CreateUserFormViewModel): Observable<ICreateUserResponseModel> {
-		return this._authRequestService.createUser(viewModel.getModel())
+		return this._userRequestService.createUser(viewModel.getModel())
 			.pipe(
 				catchError(() => {
 					viewModel.requestError.set('Не удалось добавить нового сотрудника')

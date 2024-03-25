@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, Res, Session} from "@nestjs/common";
+import {Body, Controller, Get, Post, Request, Res, Session} from "@nestjs/common";
 import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
 import {UserModel} from "../models/user.model";
 import {compareSync} from "bcrypt";
@@ -7,6 +7,8 @@ import {StatusCode} from "../../errors/enums/status-code.enum";
 import {ErrorModel} from "../../errors/models/error.model";
 import {authConfig} from "../config/auth.config";
 import {ISignInDto} from "../dto/sign-in.dto";
+
+//TODO нужен рефреш токен, держать все в куках несекьюрно
 
 @Controller('auth')
 export class AuthorizationController {
@@ -52,8 +54,8 @@ export class AuthorizationController {
         }, response)
     }
     @Post('sign-out')
-    public signOut(@Session() session) {
-        session = null;
+    public signOut(@Request() request) {
+        request.session = null;
     }
 
     @Get('ping')

@@ -6,6 +6,12 @@ import {GradeTreeNodeModel} from "../models/grade-tree-node.model";
 import {StatusCode} from "../../errors/enums/status-code.enum";
 import {getGradeById} from "../utils/get-grade-by-id";
 import {IGradeCreateDto} from "../dto/grade-create.dto";
+import {ObjectId} from "mongodb";
+import {Response} from "express";
+import {UserModel} from "../../authorization/models/user.model";
+import {NextUserGradeItemModel} from "../models/next-user-grade.model";
+import {TargetItemModel} from "../models/target.model";
+import {PerformanceReviewModel} from "../models/performance-review.model";
 
 @Controller('grade')
 export class GradeController {
@@ -49,9 +55,39 @@ export class GradeController {
     }
 
     @Get(':id')
-    getGradeById(@Param('id') id, @Res() response) {
+    getGradeById(@Param('id') id: string, @Res() response: Response) {
         wrapErrorResponse(async () => {
-            response.status(StatusCode.ok).send(getGradeById(id))
+            response.status(StatusCode.ok).send(getGradeById(new ObjectId(id)))
+        }, response)
+    }
+
+    @Get('personal/next')
+    getGradePersonalNext(@Res() response: Response) {
+        wrapErrorResponse(async () => {
+            const user = await UserModel.findById(response.locals.userId).exec();
+            const nextGrade = await NextUserGradeItemModel
+                .findById(user.nextGrade)
+                .projection({ __v: 0 })
+                .exec()
+
+            response
+                .status(StatusCode.ok)
+                .send({
+                    grade: await GradeModel
+                        .findById(nextGrade.grade)
+                        .projection({ __v: 0 })
+                        .exec(),
+                    targets: await Promise.all(nextGrade.targets.map(async (targetId) => {
+                        await TargetItemModel
+                            .findById(targetId)
+                            .projection({ __v: 0 })
+                            .exec()
+                    })),
+                    performanceReview: await PerformanceReviewModel
+                        .findById(nextGrade.performanceReview)
+                        .projection({ __v: 0 })
+                        .exec()
+                })
         }, response)
     }
 }
