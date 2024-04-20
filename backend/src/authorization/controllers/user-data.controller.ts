@@ -61,7 +61,7 @@ export class UserDataController {
         return await RoleModel.find().exec();
     }
 
-    @Get('info')
+    @Get('info/personal')
     public userInfo(@Res() response) {
         wrapErrorResponse(async () => {
             const userModel = await UserModel.findById(response.locals.userId).exec();

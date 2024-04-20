@@ -30,13 +30,16 @@ export class AuthorizationController {
                 const passwordCorrect = compareSync(body.password, user.password)
 
                 if (passwordCorrect) {
-                    session.token = sign({ id: user.id },
-                        authConfig.secretKey,
-                        {
-                            algorithm: 'HS256',
-                            allowInsecureKeySizes: true,
-                            expiresIn: 86400, // 24 hours
-                        });
+                    session.token =
+                        sign(
+                            { id: user.id },
+                            authConfig.secretKey,
+                            {
+                                algorithm: 'HS256',
+                                allowInsecureKeySizes: true,
+                                expiresIn: 86400, // 24 hours
+                            }
+                        );
 
                     response.status(StatusCode.ok).send({
                         id: user._id,

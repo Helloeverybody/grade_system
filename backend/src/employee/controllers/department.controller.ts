@@ -4,10 +4,11 @@ import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
 import {GradeTreeNodeModel} from "../../grade/models/grade-tree-node.model";
 import {GradeModel} from "../../grade/models/grade.model";
 import {StatusCode} from "../../errors/enums/status-code.enum";
-import {Body, Controller, Get, Param, Post, Res} from "@nestjs/common";
+import {Body, Controller, Get, Param, Patch, Post, Res} from "@nestjs/common";
 import {ICreateDepartmentDto} from "../dto/create-department.dto";
 import {ObjectId} from "mongodb";
 import {DepartmentSettingsModel} from "../models/department-settings.model";
+import {IDepartmentEditable} from "../dto/department-editable";
 
 @Controller('department')
 export class DepartmentController {
@@ -27,9 +28,27 @@ export class DepartmentController {
         }, response)
     }
 
+    @Patch(':id')
+    editDepartment(@Param('id') id, @Body() body: IDepartmentEditable, @Res() response) {
+        wrapErrorResponse(async () => {
+            const result = await DepartmentModel
+                .findById(id)
+                .updateOne({ director: new ObjectId(body.director) })
+                .exec()
+            response.send(result)
+        }, response)
+    }
+
     @Post()
     createDepartment(@Body() body: ICreateDepartmentDto, @Res() response: Response) {
         wrapErrorResponse(async () => {
+            const defaultTargets = body.defaultFirstTargets ? body.defaultFirstTargets.map(
+                    target => ({
+                        title: target.title,
+                        description: target.description
+                    })
+                ) : undefined
+
             //TODO сделать ресты для настройки отдела
             const newDepartmentSettings = await new DepartmentSettingsModel({
                 defaultPerformanceReviewModel: {
@@ -37,10 +56,7 @@ export class DepartmentController {
                     agenda: body.defaultPerformanceReviewModel.agenda,
                     timeFromEmploymentDay: body.defaultPerformanceReviewModel.timeFromEmploymentDay
                 },
-                defaultFirstTargets: body.defaultFirstTargets ? body.defaultFirstTargets.map((target) => ({
-                    title: target.title,
-                    description: target.description
-                })) : undefined
+                defaultFirstTargets: defaultTargets
             }).save();
 
             const newDepartmentModel = new DepartmentModel({
@@ -58,7 +74,10 @@ export class DepartmentController {
                 grade: defaultGrade.id
             }).save()
 
-            newDepartmentModel.employees.push(new ObjectId(body.director))
+            if (body.director) {
+                newDepartmentModel.employees.push(new ObjectId(body.director))
+            }
+
             newDepartmentModel.gradeTreeId = newGradeTree.id
 
             response.status(StatusCode.ok).send(await newDepartmentModel.save())

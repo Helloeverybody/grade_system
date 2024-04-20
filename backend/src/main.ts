@@ -8,7 +8,7 @@ import {Role} from "./authorization/enums/roles.enum";
 import cors from 'cors';
 
 (async function bootstrap() {
-  await configurateDB();
+  await configureDB();
   const app = await NestFactory.create(AppModule);
 
   app.use(express.static("public"));
@@ -27,7 +27,7 @@ import cors from 'cors';
       });
 })()
 
-async function configurateDB() {
+async function configureDB() {
 
   const dbConfig = {
     host: 'localhost',
@@ -35,8 +35,18 @@ async function configurateDB() {
     dbName: 'grade_system'
   }
 
-  await connect(`mongodb://${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`);
-  await setDefaultRoles()
+  await connect(`mongodb://${dbConfig.host}:${dbConfig.port}/${dbConfig.dbName}`)
+      .then(() => {
+        console.log('Database on-line, setting up default settings')
+
+        return setDefaultRoles()
+      })
+      .catch(() => {
+        console.log('Database is not accessible, let\'s try again')
+
+        return configureDB()
+      });
+
 }
 
 

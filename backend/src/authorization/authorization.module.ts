@@ -15,14 +15,14 @@ import {Role} from "./enums/roles.enum";
 })
 export class AuthorizationModule implements NestModule {
     configure(consumer: MiddlewareConsumer) {
-        consumer
-            .apply(
-                verifyTokenMiddleware,
-                checkRoleMiddleware(Role.admin),
-                checkDuplicationsMiddleware,
-                checkRoleExistsMiddleware
-            )
-            .forRoutes('user/create');
+        // consumer
+        //     .apply(
+        //         verifyTokenMiddleware,
+        //         checkRoleMiddleware(Role.admin),
+        //         checkDuplicationsMiddleware,
+        //         checkRoleExistsMiddleware
+        //     )
+        //     .forRoutes('user/create');
 
         consumer
             .apply(
