@@ -21,5 +21,7 @@ export const UserModel = model(
         nextGrade: ObjectId,
         history: [ObjectId],
         department: ObjectId,
+        director: ObjectId,
+        subordinates: [ObjectId]
     })
 );

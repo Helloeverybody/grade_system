@@ -30,7 +30,6 @@ export class UserDataController {
                 grade: defaultGrade.toObject({ versionKey: false })
             }).save();
 
-            const nextGradeId =  await createDefaultNextGrade(body.department);
 
             const user = new UserModel({
                 username: body.username,
@@ -38,7 +37,6 @@ export class UserDataController {
                 password: hashSync(password, 8),
                 history: [historyItem.id],
                 grade: defaultGrade.id,
-                nextGrade: nextGradeId,
                 roles: body.roles.map((stringRole) => new ObjectId(stringRole))
             });
 
@@ -47,6 +45,13 @@ export class UserDataController {
             } catch (error) {
                 throw new ErrorModel(StatusCode.badRequest, user)
             }
+
+            if (body.director) {
+                await user.updateOne({ director: body.director }).exec();
+            }
+
+            const nextGradeId =  await createDefaultNextGrade(user._id);
+            await user.updateOne({ nextGrade: nextGradeId }).exec();
 
             response.status(StatusCode.ok).send({
                 login: user.username,

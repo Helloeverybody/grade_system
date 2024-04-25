@@ -1,15 +1,20 @@
 import {NextUserGradeItemModel} from "../../grade/models/next-user-grade.model";
 import {TargetItemModel} from "../../grade/models/target.model";
-import {PerformanceReviewModel} from "../../grade/models/performance-review.model";
+import {PerformanceReviewModel} from "../../performance-review/models/performance-review.model";
 import {DepartmentModel} from "../../employee/models/department.model";
 import {DepartmentSettingsModel} from "../../employee/models/department-settings.model";
 import {getRandomNextGrade} from "../../grade/utils/get-random-next-grade";
 import {ObjectId} from "mongodb";
+import {PrStatus} from "../../performance-review/enums/pr-status.enum";
+import {getPrStatusModelId} from "../../performance-review/utils/get-pr-status-model-id";
+import {UserModel} from "../models/user.model";
 
-export async function createDefaultNextGrade(departmentId: string): Promise<string> {
+export async function createDefaultNextGrade(userId: ObjectId): Promise<string> {
+    const user = await UserModel.findById(userId).exec();
+
     //TODO нужно сделать настройку дефолтного грейда
     const department = await DepartmentModel
-        .findById(departmentId)
+        .findById(user.department)
         .exec()
 
     const departmentSettings = await DepartmentSettingsModel
@@ -26,8 +31,13 @@ export async function createDefaultNextGrade(departmentId: string): Promise<stri
     const firstPerformanceReview = await new PerformanceReviewModel({
         title: departmentSettings.defaultPerformanceReviewModel.title,
         agenda: departmentSettings.defaultPerformanceReviewModel.agenda,
-        startDateTime: getPRDateTime(departmentSettings.defaultPerformanceReviewModel.timeFromEmploymentDay)
+        startDateTime: getPRDateTime(departmentSettings.defaultPerformanceReviewModel.timeFromEmploymentDay),
+        employee: userId,
     }).save()
+
+    if (user.director) {
+        firstPerformanceReview.updateOne({ reviewer: user.director });
+    }
 
     const nextGradeId = await getRandomNextGrade(department.gradeTreeId as ObjectId);
 

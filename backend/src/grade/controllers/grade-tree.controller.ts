@@ -1,4 +1,3 @@
-import {Request, Response} from "express";
 import {wrapErrorResponse} from "../../errors/utils/wrap-error-response";
 import {GradeTreeNodeModel} from "../models/grade-tree-node.model";
 import {GradeModel} from "../models/grade.model";

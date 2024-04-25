@@ -6,6 +6,10 @@ import {GradeTreeController} from "./controllers/grade-tree.controller";
 import {checkRoleMiddleware} from "../authorization/middleware/check-role.middleware";
 import {Role} from "../authorization/enums/roles.enum";
 import {RequestMethod} from "@nestjs/common/enums/request-method.enum";
+import {prStatusMiddleware} from "../performance-review/middleware/pr-status.middleware";
+import {PrStatus} from "../performance-review/enums/pr-status.enum";
+import {checkTargetBelongsToUserMiddleware} from "./middleware/check-target-belongs-to-user.middleware";
+import {isUserReviewerMiddleware} from "../performance-review/middleware/is-user-reviewer.middleware";
 
 
 @Module({
@@ -38,6 +42,26 @@ export class GradeModule implements NestModule {
                 'grade-history/:id',
                 'grade-history/:id/last',
                 { path: 'grade', method: RequestMethod.POST }
+            )
+
+        consumer
+            .apply(
+                verifyTokenMiddleware,
+                isUserReviewerMiddleware,
+                prStatusMiddleware([PrStatus.ongoing, PrStatus.postMeet])
+            )
+            .forRoutes(
+                'target/setTarget/:id',
+            )
+
+        consumer
+            .apply(
+                verifyTokenMiddleware,
+                checkTargetBelongsToUserMiddleware,
+                prStatusMiddleware([PrStatus.planned, PrStatus.ongoing])
+            )
+            .forRoutes(
+                'target/achieveTarget/:targetId',
             )
     }
 }

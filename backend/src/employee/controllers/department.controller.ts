@@ -31,12 +31,40 @@ export class DepartmentController {
     @Patch(':id')
     editDepartment(@Param('id') id, @Body() body: IDepartmentEditable, @Res() response) {
         wrapErrorResponse(async () => {
-            const result = await DepartmentModel
-                .findById(id)
-                .updateOne({ director: new ObjectId(body.director) })
-                .exec()
-            response.send(result)
+            if (body.director) {
+                await this.updateDepartmentDirector(id, new ObjectId(body.director), response)
+            }
         }, response)
+    }
+
+    private async updateDepartmentDirector(@Param('id') id, @Body() directorId: ObjectId, @Res() response) {
+        const department = await DepartmentModel.findById(id).exec();
+        const oldDirectorId = department.director
+
+        let result;
+
+        if (oldDirectorId) {
+            result = await DepartmentModel
+                .updateOne({
+                    _id: department._id,
+                    "employees": oldDirectorId
+                }, {
+                    director: directorId,
+                    "$set": {"employees.$": directorId}
+                })
+                .exec()
+        } else {
+            result = await DepartmentModel
+                .updateOne({
+                    _id: department._id
+                }, {
+                    director: directorId,
+                    "$addToSet": {employees: directorId}
+                })
+                .exec()
+        }
+
+        response.send(result)
     }
 
     @Post()

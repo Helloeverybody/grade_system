@@ -11,7 +11,7 @@ import {Response} from "express";
 import {UserModel} from "../../authorization/models/user.model";
 import {NextUserGradeItemModel} from "../models/next-user-grade.model";
 import {TargetItemModel} from "../models/target.model";
-import {PerformanceReviewModel} from "../models/performance-review.model";
+import {PerformanceReviewModel} from "../../performance-review/models/performance-review.model";
 
 @Controller('grade')
 export class GradeController {
@@ -77,7 +77,7 @@ export class GradeController {
                         .findById(nextGrade.grade)
                         .projection({ __v: 0 })
                         .exec(),
-                    targets: await Promise.all(nextGrade.targets.map(async (targetId) => {
+                    targets: await Promise.all(nextGrade.targets.map(async targetId => {
                         await TargetItemModel
                             .findById(targetId)
                             .projection({ __v: 0 })
